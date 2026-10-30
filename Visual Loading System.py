@@ -6,6 +6,7 @@
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import streamlit as st
 
 
 
@@ -17,9 +18,17 @@ cargo = pd.read_csv("cargo_values.csv", sep=";", decimal=",")
 fuel = pd.read_csv("FuelTanks.csv", sep=";", decimal=",")
 
 # Show tables
-display(pax)
-display(cargo)
-display(fuel)
+# Show tables in Streamlit
+st.subheader("Aircraft Loading Data")
+
+st.write("Passenger configuration")
+st.dataframe(pax)
+
+st.write("Cargo compartments")
+st.dataframe(cargo)
+
+st.write("Fuel tanks")
+st.dataframe(fuel)
 
 
 
